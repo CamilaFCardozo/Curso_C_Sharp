@@ -7,36 +7,36 @@ namespace Course
     {
         static void Main(string[] args)
         {
-         /* CALCULO DO TRIANGULO*/
-           Triangulo x, y;
+            Produto p = new Produto();
+            Console.WriteLine("Entre com os dados do produto: ");
 
-            x = new Triangulo();
-            y = new Triangulo();
+            Console.Write("Nome: ");
+            p.Nome = Console.ReadLine();
 
+            Console.Write("Preço: ");
+            p.Preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
+            Console.Write("Quantidade em Estoque: ");
+            p.Quantidade = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Entre com as medidas do Triângulo X:");
-            x.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            x.B = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            x.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.WriteLine("Dados do produto: " + p);
 
-            Console.WriteLine("Entre com as medidas do Triângulo Y:");
-            y.A = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            y.B= double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            y.C = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.WriteLine();
+            Console.Write("Digite o número de produtos a ser adicionado ");
+            int qte = int.Parse(Console.ReadLine());
+            p.AdicionarProdutos(qte);
 
-            double areaX = x.Area();
-            double areaY = y.Area();
+            Console.WriteLine();
+            Console.WriteLine("Dados atualizados: " + p);
 
+            Console.WriteLine();
+            Console.Write("Digite o número de produtos a ser removido ");
+            qte = int.Parse(Console.ReadLine());
+            p.RemoverProdutos(qte);
 
-            Console.WriteLine("Área de x = " +areaX.ToString("F4", CultureInfo.InvariantCulture));
-            Console.WriteLine("Área de Y = " + areaY.ToString("F4", CultureInfo.InvariantCulture));
+            Console.WriteLine();
+            Console.WriteLine("Dados atualizados: " + p);
 
-            if (areaX > areaY)
-                Console.WriteLine("Maior área: X");
-            else
-                Console.WriteLine("Maior área: Y");
-            
         }
     }
 }
